@@ -41,7 +41,7 @@ MechanismType
             # Print the names of all density mechanisms 
             mt = h.MechanismType(0) 
             mname  = h.ref('')
-            for i in range(int(mt.count())):
+            for i in range(mt.count()):
             	mt.select(i) 
             	mt.selected(mname) 
             	print(mname[0])
@@ -362,3 +362,47 @@ MechanismType
         Return the internal type index of the selected mechanism. 
 
 
+----
+
+
+
+.. method:: MechanismType.file
+
+
+    Syntax:
+        ``file_name = mt.file()``
+
+
+    Description:
+        Returns the mod file name for the currently selected mechanism.
+
+        .. code-block::
+            python
+            
+            from neuron import h
+            s = h.Section(name='s')
+            mt = h.MechanismType(0)
+            mt.select('hh')
+            print(mt.file())
+
+----
+
+
+
+.. method:: MechanismType.code
+
+
+    Syntax:
+        ``code_string = mt.code()``
+
+
+    Description:
+        Returns the nmodl code for the currently selected mechanism.
+        .. code-block::
+            python
+            
+            from neuron import h
+            s = h.Section(name='s')
+            mt = h.MechanismType(0)
+            mt.select('hh')
+            print('\n'.join(mt.code().split('\n')[:4]))
